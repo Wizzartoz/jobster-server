@@ -37,7 +37,7 @@ public class Message {
     @NotNull
     private Timestamp creationDatetime;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "chat_id")
     private Chat chat;
 }

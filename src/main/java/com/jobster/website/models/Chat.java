@@ -26,13 +26,13 @@ public class Chat {
     @NotNull
     private Timestamp creationDatetime;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(
             name = "employee_id"
     )
     private Employee employeeChatOwner;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(
             name = "employer_id"
     )

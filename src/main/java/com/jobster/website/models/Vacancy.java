@@ -48,7 +48,7 @@ public class Vacancy {
     @Min(0)
     private Integer experience;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "employer_id")
     private Employer employer;
 

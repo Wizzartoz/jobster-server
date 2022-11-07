@@ -1,8 +1,6 @@
 package com.jobster.website.models;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotEmpty;
@@ -10,7 +8,8 @@ import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
 @Entity
-@Data
+@Getter
+@Setter
 @NoArgsConstructor
 @AllArgsConstructor
 @Table(
@@ -49,10 +48,10 @@ public class Person {
     @Column(name = "role")
     private RoleEnum role;
 
-    @OneToOne(mappedBy = "person")
+    @OneToOne(cascade = CascadeType.PERSIST, mappedBy = "person")
     private Employee employee;
 
-    @OneToOne(mappedBy = "person")
+    @OneToOne(mappedBy = "person", cascade = {CascadeType.ALL})
     private Employer employer;
 
 }
