@@ -39,13 +39,13 @@ public class Employee {
     @Size(max = 50)
     private String linkedin;
 
-    @OneToOne(mappedBy = "employee")
+    @OneToOne(cascade = CascadeType.PERSIST)
+    @JoinColumn(name = "employee_id", referencedColumnName = "employee_id")
     private Resume resume;
 
     @OneToMany(mappedBy = "employeeChatOwner")
     private List<Chat> chats;
 
-    @OneToOne()
-    @JoinColumn(name = "person_id", referencedColumnName = "person_id")
+    @OneToOne(mappedBy = "employee")
     private Person person;
 }

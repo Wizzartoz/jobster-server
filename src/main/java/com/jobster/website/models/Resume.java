@@ -51,7 +51,6 @@ public class Resume {
     @Column(name = "is_active")
     private boolean isActive;
 
-    @OneToOne()
-    @JoinColumn(name = "employee_id")
-    private Employee employee;
+    @Column(name = "employee_id")
+    private long employeeId;
 }

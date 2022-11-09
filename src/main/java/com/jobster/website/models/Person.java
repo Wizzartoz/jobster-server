@@ -1,6 +1,7 @@
 package com.jobster.website.models;
 
 import lombok.*;
+import org.hibernate.annotations.Cascade;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotEmpty;
@@ -48,7 +49,9 @@ public class Person {
     @Column(name = "role")
     private RoleEnum role;
 
-    @OneToOne(cascade = CascadeType.PERSIST, mappedBy = "person")
+    @OneToOne()
+    @Cascade({org.hibernate.annotations.CascadeType.MERGE, org.hibernate.annotations.CascadeType.PERSIST})
+    @JoinColumn(name = "person_id")
     private Employee employee;
 
     @OneToOne(mappedBy = "person", cascade = {CascadeType.ALL})

@@ -14,9 +14,7 @@ import javax.validation.constraints.NotEmpty;
 @AllArgsConstructor
 public class EmployeeProfileDto {
     private Long employeeId;
-    @NotEmpty
     private String name;
-    @NotEmpty
     private String surname;
     @NotEmpty
     @Email
